@@ -7,7 +7,7 @@ Ich werde noch weitere Funktionen hinzufügen und auch die Benutzereingabe wird 
 
 Unter dem Pfad SN_SNMP/SNMP_SN/out/artifacts kann die ausführbare .jar datei und eine .bat datei zum ausführen der .jar datei heruntergeladen werden. Ist Java installiert kann diese einfach ausgeführt werden um das Programm zu starten.
 
-2.Meilenstein
+2. Meilenstein
 Das Programm wurde überarbeitet und einige Funktionen wurden hinzugefügt. Auch das User Interface wurde erweitert sodass der Benutzer nun über die Kommandozeile zwischen mehreren verschiedenen Befehlen aussuchen kann.
 
 Dem Benutzer stehen folgende Funktionen des Programms zur Verfügung:
