@@ -20,4 +20,6 @@ Dem Benutzer stehen folgende Funktionen des Programms zur Verfügung:
 next Steps:
 Traps und Informs empfangen und ausgeben
 
+Im Ordner SN_SNMP gibt es nun einen Ordner Screenshots in dem zwei Screenshots der Konsole/UI abgespeichert sind.
+
 Unter dem Pfad SN_SNMP/SNMP_SN/out/artifacts kann die ausführbare .jar datei und eine .bat datei zum ausführen der .jar datei heruntergeladen werden. Ist Java installiert kann diese einfach ausgeführt werden um das Programm zu starten.
