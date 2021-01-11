@@ -50,16 +50,20 @@ public class test {
                         }
                         break;
                     case "/get Infos":
-                        System.out.println("\nGeneral informations about IP: " + strIPAddress);
-                        System.out.println("sysDescription:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.1.0"));
-                        System.out.println("sysObjectID:" +  objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.2.0"));
-                        System.out.println("sysUpTime:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.3.0"));
-                        System.out.println("sysContact:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.4.0"));
-                        System.out.println("sysName:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.5.0"));
-                        System.out.println("sysLocation:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.6.0"));
-                        System.out.println("sysServices:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.7.0"));
+                        if(objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.1.0") != null){
+                            System.out.println("\nGeneral informations about IP: " + strIPAddress);
+                            System.out.println("sysDescription:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.1.0"));
+                            System.out.println("sysObjectID:" +  objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.2.0"));
+                            System.out.println("sysUpTime:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.3.0"));
+                            System.out.println("sysContact:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.4.0"));
+                            System.out.println("sysName:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.5.0"));
+                            System.out.println("sysLocation:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.6.0"));
+                            System.out.println("sysServices:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.7.0"));
+                        }else{
+                            System.out.println("No Information available (Try to change IP)");
+                        }
                         break;
-                    default: System.out.println("Command: -" + UserIn + "- not found - Type /help to see all commands");
+                    default: System.out.println("Command: " + UserIn + " not found - Type /help to see all commands");
                 }
             }
         }catch (Exception e){
@@ -100,7 +104,7 @@ public class test {
                         }
                     }
                 }catch(NullPointerException e){
-                    str = "";
+                    str = null;
                 }
             }else{
                 System.out.println("Error: Timeout");
@@ -127,7 +131,7 @@ public class test {
                 ip[3] = (byte) i;
                 InetAddress address = InetAddress.getByAddress(ip);
                 if (address.isReachable(30)) {
-                    if(snmpGet(String.valueOf(address), "public", "1.3.6.1.2.1.1.4.0") != ""){
+                    if(snmpGet(String.valueOf(address), "public", "1.3.6.1.2.1.1.4.0") != null){
                         String output = address.toString().substring(1);
                         System.out.print("\n" + output + " is on the network and SNMP is ACTIVE");
                     }else{
