@@ -3,6 +3,7 @@
     <output-path>$PROJECT_DIR$/out/artifacts/SNMP_SN_jar</output-path>
     <root id="archive" name="SNMP_SN.jar">
       <element id="module-output" name="SNMP_SN" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/librarys/mibble-2.10.1/MibbleBrowser.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/librarys/snmp4j-2.8.6.jar" path-in-jar="/" />
       <element id="extracted-dir" path="$PROJECT_DIR$/librarys/tnm4j-1.0.11.jar" path-in-jar="/" />
     </root>
