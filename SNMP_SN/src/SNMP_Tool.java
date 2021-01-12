@@ -12,14 +12,14 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Scanner;
 
-public class test {
+public class SNMP_Tool {
     public static final String READ_COMMUNITY = "public";
     public static String OID;
 
     public static void main(String[] args){
         try{
 
-            test objSNMP = new test();
+            SNMP_Tool objSNMP = new SNMP_Tool();
             Scanner sc = new Scanner(System.in);
 
             String UserIn;
@@ -38,7 +38,9 @@ public class test {
                         strIPAddress = sc.nextLine();
                         break;
                     case "/scan":
-                        objSNMP.getNetwork("192.168.1.0");
+                        System.out.println("Enter Destination Network (Example: 10.10.30.0):");
+                        UserIn = sc.nextLine();
+                        objSNMP.getNetwork(UserIn);
                         break;
                     case "/getOID":
                         System.out.println("\nEnter a OID: (Example: 1.3.6.1.2.1.1.1.0)");
@@ -124,6 +126,8 @@ public class test {
         } catch(UnknownHostException e) {
             e.printStackTrace();
         }
+
+
 
         System.out.println("Scanning all adresses of your Network, this may take several minutes...");
         for (int i = 1; i <= 254; i++) {
