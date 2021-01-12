@@ -31,9 +31,9 @@ public class SNMP_Tool {
                 UserIn = sc.nextLine();
                 switch(UserIn){
                     case "/help":
-                        System.out.println("Commands: /scan /getOID /set ip /get Infos");
+                        System.out.println("Commands: /scan /setIp /getInfo /getOID");
                         break;
-                    case "/set ip":
+                    case "/setIp":
                         System.out.println("Enter Destination IP Adress (Example: 127.0.0.1):");
                         strIPAddress = sc.nextLine();
                         break;
@@ -48,10 +48,10 @@ public class SNMP_Tool {
                         if((objSNMP.snmpGet(strIPAddress, READ_COMMUNITY, OID) != "")){
                             System.out.println(objSNMP.snmpGet(strIPAddress, READ_COMMUNITY, OID));
                         }else{
-                            System.out.println("No valid OID or IP with no SNMP activated");
+                            System.out.println("No valid OID or IP with SNMP not activated (Try to change IP or try other OID)");
                         }
                         break;
-                    case "/get Infos":
+                    case "/getInfo":
                         if(objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.1.0") != null){
                             System.out.println("\nGeneral informations about IP: " + strIPAddress);
                             System.out.println("sysDescription:" + objSNMP.snmpGet(strIPAddress,READ_COMMUNITY,"1.3.6.1.2.1.1.1.0"));
